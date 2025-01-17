@@ -31,13 +31,31 @@ button{
     margin-right: 5px;
     box-shadow: inset 5px 5px 12px;
     background-color: #80BCBD;
+    border: none;
+border-radius: 8px;
+transition: all 0.3s ease;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 input{
     box-shadow: inset 5px 5px 12px;
 }
 
+
+
+
 /* .bnb{
     background-color: #E493B3;
 } */
 
+/* 
+.clock {
+    background: #2e3b4e;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+} */

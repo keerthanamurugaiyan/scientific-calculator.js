@@ -1,21 +1,24 @@
-//Digital Clock
-// let ampm=document.getElementById('ampm');
-// function displayTime(){
-//     let dateTime=new Date();
-//     let hr=dateTime.getHours();
-//     let min=dateTime.getMinutes();
-//     let sec=dateTime.getSeconds();
-//     if(hr>12){
-//         ampm.innerHTML="PM";
-//     }
-//     document.getElementById('hours').innerHTML=padZero(hr);
-//     document.getElementById('mins').innerHTML=min;
-//     document.getElementById('seconds').innerHTML=sec;
-// }
-// function padZero(num){
-//     return num<10?"0"+num:num
-// }
-// setInterval(displayTime,500)
+// Digital Clock
+let ampm = document.getElementById('ampm');
+function displayTime() {
+    let dateTime = new Date();
+    let hr = dateTime.getHours();
+    let min = dateTime.getMinutes();
+    let sec = dateTime.getSeconds();
+    if (hr > 12) {
+        ampm.innerHTML = "PM";
+        hr = hr - 12; // Convert to 12-hour format
+    } else {
+        ampm.innerHTML = "AM";
+    }
+    document.getElementById('hours').innerHTML = padZero(hr);
+    document.getElementById('mins').innerHTML = padZero(min);
+    document.getElementById('seconds').innerHTML = padZero(sec);
+}
+function padZero(num) {
+    return num < 10 ? "0" + num : num;
+}
+setInterval(displayTime, 500);
 
 //Calculator Functions
 const displayInput=document.getElementById("displayInput");
@@ -79,4 +82,12 @@ function calculateFactorial() {
         const inputValue =displayInput.value;
         displayInput.value = factorial(inputValue);
     
+}
+
+function pi() {
+    displayInput.value += Math.PI.toFixed(8); 
+}
+
+function toRadians(degrees) {
+    return degrees * (Math.PI / 180);
 }
