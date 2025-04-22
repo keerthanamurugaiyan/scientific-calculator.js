@@ -7,7 +7,7 @@ function displayTime() {
     let sec = dateTime.getSeconds();
     if (hr > 12) {
         ampm.innerHTML = "PM";
-        hr = hr - 12; // Convert to 12-hour format
+        hr = hr - 12; 
     } else {
         ampm.innerHTML = "AM";
     }
@@ -80,8 +80,7 @@ function factorial(n) {
 
 function calculateFactorial() {
         const inputValue =displayInput.value;
-        displayInput.value = factorial(inputValue);
-    
+        displayInput.value = factorial(inputValue);   
 }
 
 function pi() {
@@ -91,3 +90,64 @@ function pi() {
 function toRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
+
+//snowflakes
+function createSnowflakes() {
+    const snowContainer = document.createElement("div");
+    snowContainer.classList.add("snow");
+    document.body.appendChild(snowContainer);
+  
+    let cursorX = 0;
+    let cursorY = 0;
+  
+    document.addEventListener("mousemove", (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+  
+      const snowflakes = document.querySelectorAll(".snowflake");
+      snowflakes.forEach((flake) => {
+        const rect = flake.getBoundingClientRect();
+        const dx = rect.left + rect.width / 2 - cursorX;
+        const dy = rect.top + rect.height / 2 - cursorY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+  
+        if (distance < 50) {
+          flake.remove(); 
+        }
+      });
+    });
+  
+    function generateSnowflake() {
+      const x = Math.random() * window.innerWidth;
+      const y = -10; 
+  
+      const dx = x - cursorX;
+      const dy = y - cursorY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+  
+      if (distance < 60) return; 
+  
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+  
+      const size = Math.random() * 10 + 5;
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${x}px`;
+      snowflake.style.opacity = Math.random();
+      snowflake.style.animationDuration = 8 + Math.random() * 7 + "s";
+      snowflake.style.transition = "transform 0.5s ease, opacity 0.3s";
+      snowflake.style.pointerEvents = "none";
+  
+      snowContainer.appendChild(snowflake);
+  
+      setTimeout(() => {
+        snowflake.remove();
+      }, 15000);
+    }
+
+    setInterval(generateSnowflake, 60);
+  }
+  
+  createSnowflakes();
+  

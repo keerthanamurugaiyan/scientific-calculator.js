@@ -3,59 +3,151 @@
     margin: 0%;
 }
 
+body{
+    background-color: #075579;
+    color: whitesmoke;
+}
+
 .fo{
-    /* width: 370px;
-    justify-content: center;
-    align-items: center; */
-    /* background-color: #944E63; */
-    background-color: #205b7a;
+    border: 2px solid black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* .bnc{
-    background-color: #bbb9b9;
-}
-
-.bnc:hover{
-    background-color: #9c9a9a;
-} */
-
-
 
 h1{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.frozen-title p {
+    font-weight: 900;
+    color: transparent;
+    background: linear-gradient(180deg, #e0f7fa, #aeeaff, #81d4fa, #4fc3f7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    text-shadow:
+      0 0 5px #c3f5ff,
+      0 0 10px #a0e9ff,
+      0 0 15px #81d4fa,
+      0 0 20px #4fc3f7,
+      0 0 30px #03a9f4;
+    animation: shimmer 4s infinite ease-in-out;
+  }
+
+  @keyframes shimmer {
+    0% {
+      text-shadow:
+        0 0 5px #c3f5ff,
+        0 0 10px #a0e9ff,
+        0 0 15px #81d4fa,
+        0 0 20px #4fc3f7,
+        0 0 30px #03a9f4;
+    }
+    50% {
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #b3e5fc,
+        0 0 25px #81d4fa,
+        0 0 35px #29b6f6,
+        0 0 40px #00bcd4;
+    }
+    100% {
+      text-shadow:
+        0 0 5px #c3f5ff,
+        0 0 10px #a0e9ff,
+        0 0 15px #81d4fa,
+        0 0 20px #4fc3f7,
+        0 0 30px #03a9f4;
+    }
+  }
+
 button{
-    width: 70px;
+    width: 73px;
     margin-top: 10px;
-    margin-right: 5px;
     box-shadow: inset 5px 5px 12px;
-    background-color: #80BCBD;
+    background-color: #7accce;
     border: none;
-border-radius: 8px;
-transition: all 0.3s ease;
-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(243, 242, 242, 0.247);
 }
 
 input{
     box-shadow: inset 5px 5px 12px;
 }
 
+/* Snowfall Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: whitesmoke;
+    pointer-events: none;
+    animation: snowfall 20s linear infinite;
+    opacity: 0.3;
+    z-index: 0;
+}
 
+@keyframes snowfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1000px; }
+}
 
+/* Bring calculator to front */
+.fo {
+    position: relative;
+    z-index: 1;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
 
-/* .bnb{
-    background-color: #E493B3;
-} */
-
-/* 
-.clock {
-    background: #2e3b4e;
+/* Input style */
+input#displayInput {
+    background-color: rgba(255,255,255,0.2);
     color: #fff;
-    padding: 15px 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-} */
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4db6ac;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Snowfall animation */
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .snowflake {
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    background-color: white;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
