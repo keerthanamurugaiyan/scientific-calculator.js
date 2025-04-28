@@ -75,7 +75,6 @@ input{
     box-shadow: inset 5px 5px 12px;
 }
 
-/* Snowfall Background */
 body::before {
     content: "";
     position: fixed;
@@ -95,7 +94,6 @@ body::before {
     100% { background-position: 0 1000px; }
 }
 
-/* Bring calculator to front */
 .fo {
     position: relative;
     z-index: 1;
@@ -105,7 +103,6 @@ body::before {
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Input style */
 input#displayInput {
     background-color: rgba(255,255,255,0.2);
     color: #fff;
@@ -120,7 +117,6 @@ button:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Snowfall animation */
 .snow {
     position: fixed;
     top: 0;
